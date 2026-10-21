@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobiAgri — Nền Tảng ERP Quản Lý Vùng Nguyên Liệu Chuẩn VietGAP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        agriGreen: "#10B981",
+                        agriDark: "#064E3B",
+                        accentGold: "#F59E0B"
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#040d0a] text-slate-100 min-h-screen font-sans antialiased selection:bg-emerald-500 selection:text-black">
+    <!-- Header -->
+    <header class="border-b border-emerald-900/60 bg-[#071712]/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3.5 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center text-black font-black text-xl shadow-lg shadow-emerald-500/20">
+                    🌾
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base font-bold text-white tracking-wide">MobiAgri ERP</h1>
+                        <span class="text-[10px] bg-emerald-950 text-emerald-300 font-mono px-2 py-0.5 rounded border border-emerald-800">VietGAP Certified</span>
+                        <span class="text-[10px] bg-teal-950 text-teal-300 font-mono px-2 py-0.5 rounded border border-teal-800">React 18 + Prisma</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Số hóa hồ sơ nông hộ, quản trị mùa vụ & liên kết chuỗi cung ứng siêu thị B2B</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-2 h-2 mr-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    <span>Hệ Thống HTX: <strong>HOẠT ĐỘNG</strong></span>
+                </span>
+                <a href="https://github.com/VuongQuocHoa/mobiagri-app" target="_blank" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-emerald-950/80 hover:bg-emerald-900 text-emerald-200 border border-emerald-800 transition flex items-center gap-1.5">
+                    <span>GitHub Repo</span>
+                    <span>↗</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+        <!-- ERP Stat Cards -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-[#091f18] border border-emerald-900/60 rounded-2xl p-4">
+                <p class="text-emerald-400 text-xs font-mono uppercase tracking-wider">Tổng Diện Tích Vùng Trồng</p>
+                <div class="text-2xl font-black text-white font-mono mt-1">142.5 <span class="text-xs font-normal text-slate-400">Hécta (ha)</span></div>
+                <p class="text-[11px] text-emerald-400 mt-1">100% đạt chứng nhận VietGAP</p>
+            </div>
+            <div class="bg-[#091f18] border border-emerald-900/60 rounded-2xl p-4">
+                <p class="text-emerald-400 text-xs font-mono uppercase tracking-wider">Hộ Xã Viên Số Hóa</p>
+                <div class="text-2xl font-black text-white font-mono mt-1">368 <span class="text-xs font-normal text-slate-400">Nông Hộ</span></div>
+                <p class="text-[11px] text-teal-400 mt-1">12 Tổ hợp tác liên kết</p>
+            </div>
+            <div class="bg-[#091f18] border border-emerald-900/60 rounded-2xl p-4">
+                <p class="text-emerald-400 text-xs font-mono uppercase tracking-wider">Sản Lượng Dự Kiến Q4</p>
+                <div class="text-2xl font-black text-amber-400 font-mono mt-1">1,850 <span class="text-xs font-normal text-slate-400">Tấn</span></div>
+                <p class="text-[11px] text-amber-300 mt-1">Đã bao tiêu 88% sản lượng</p>
+            </div>
+            <div class="bg-[#091f18] border border-emerald-900/60 rounded-2xl p-4">
+                <p class="text-emerald-400 text-xs font-mono uppercase tracking-wider">Đối Tác B2B Thu Mua</p>
+                <div class="text-2xl font-black text-emerald-300 font-mono mt-1">16 <span class="text-xs font-normal text-slate-400">Siêu thị & Nhà máy</span></div>
+                <p class="text-[11px] text-emerald-400 mt-1">Co.opmart, WinMart, Central Retail</p>
+            </div>
+        </div>
+
+        <!-- Main ERP Workspace -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Left: Interactive Farm Zones & Logging -->
+            <div class="lg:col-span-8 bg-[#091f18]/90 border border-emerald-900/60 rounded-2xl p-5 space-y-4">
+                <div class="flex justify-between items-center border-b border-emerald-900/60 pb-3">
+                    <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                        <span>🌱 Nhật Ký Canh Tác Mùa Vụ Thời Gian Thực</span>
+                    </h2>
+                    <span class="text-xs text-emerald-400 font-mono">Tự động đồng bộ QR Code</span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                    <button onclick="filterZone('all')" id="tab-all" class="zone-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-black transition">Tất Cả Thửa Đất</button>
+                    <button onclick="filterZone('A')" id="tab-A" class="zone-tab px-3 py-1.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white bg-[#061410] border border-emerald-900/60 transition">Khu A — Bưởi Da Xanh</button>
+                    <button onclick="filterZone('B')" id="tab-B" class="zone-tab px-3 py-1.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white bg-[#061410] border border-emerald-900/60 transition">Khu B — Sầu Riêng Ri6</button>
+                </div>
+
+                <!-- Diary Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs font-sans">
+                        <thead class="bg-[#05110d] text-emerald-400 font-mono uppercase border-b border-emerald-900/60">
+                            <tr>
+                                <th class="p-3">Mã Lô</th>
+                                <th class="p-3">Hộ Canh Tác</th>
+                                <th class="p-3">Hoạt Động</th>
+                                <th class="p-3">Vật Tư / Phân Bón</th>
+                                <th class="p-3">Cách Ly</th>
+                                <th class="p-3 text-right">Trạng Thái</th>
+                            </tr>
+                        </thead>
+                        <tbody id="diaryTbody" class="divide-y divide-emerald-950 text-slate-300">
+                            <!-- Rendered by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Right: VietGAP Traceability QR & B2B Order Matcher -->
+            <div class="lg:col-span-4 space-y-6">
+                <!-- QR Traceability Card -->
+                <div class="bg-[#091f18]/90 border border-emerald-900/60 rounded-2xl p-5 space-y-4">
+                    <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wider flex items-center gap-2">
+                        <span>🔍 Truy Xuất Nguồn Gốc QR VietGAP</span>
+                    </h2>
+
+                    <div class="bg-black/50 p-4 rounded-xl border border-emerald-900/80 flex flex-col items-center text-center space-y-3">
+                        <div class="w-32 h-32 bg-white p-2 rounded-xl flex items-center justify-center shadow-lg">
+                            <!-- Simulated QR SVG -->
+                            <svg class="w-28 h-28 text-black" viewBox="0 0 100 100" fill="currentColor">
+                                <rect x="0" y="0" width="30" height="30" fill="black"/>
+                                <rect x="5" y="5" width="20" height="20" fill="white"/>
+                                <rect x="10" y="10" width="10" height="10" fill="black"/>
+                                <rect x="70" y="0" width="30" height="30" fill="black"/>
+                                <rect x="75" y="5" width="20" height="20" fill="white"/>
+                                <rect x="80" y="10" width="10" height="10" fill="black"/>
+                                <rect x="0" y="70" width="30" height="30" fill="black"/>
+                                <rect x="5" y="75" width="20" height="20" fill="white"/>
+                                <rect x="10" y="80" width="10" height="10" fill="black"/>
+                                <rect x="40" y="10" width="10" height="20" fill="black"/>
+                                <rect x="40" y="40" width="20" height="20" fill="black"/>
+                                <rect x="70" y="40" width="15" height="10" fill="black"/>
+                                <rect x="40" y="70" width="15" height="15" fill="black"/>
+                                <rect x="70" y="70" width="25" height="20" fill="black"/>
+                            </svg>
+                        </div>
+                        <div class="font-mono text-xs">
+                            <span class="text-emerald-400 font-bold">MÃ LÔ: VG-BDX-2026-08</span>
+                            <div class="text-[11px] text-slate-400 mt-0.5">Quét bằng Zalo / Camera kiểm định</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B2B Supermarket Contract Status -->
+                <div class="bg-[#091f18]/90 border border-emerald-900/60 rounded-2xl p-5 space-y-3">
+                    <h2 class="text-sm font-bold text-slate-200 uppercase tracking-wider">
+                        <span>🤝 Hợp Đồng Bao Tiêu B2B</span>
+                    </h2>
+                    <div class="space-y-2 text-xs">
+                        <div class="bg-[#05110d] p-3 rounded-xl border border-emerald-950 flex justify-between items-center">
+                            <div>
+                                <span class="font-bold text-white">Co.opmart Miền Nam</span>
+                                <div class="text-[11px] text-slate-400">500 tấn Bưởi Da Xanh • Grade A</div>
+                            </div>
+                            <span class="text-[11px] font-bold text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800">ĐÃ KÝ</span>
+                        </div>
+                        <div class="bg-[#05110d] p-3 rounded-xl border border-emerald-950 flex justify-between items-center">
+                            <div>
+                                <span class="font-bold text-white">WinMart Toàn Quốc</span>
+                                <div class="text-[11px] text-slate-400">350 tấn Sầu Riêng Ri6</div>
+                            </div>
+                            <span class="text-[11px] font-bold text-amber-400 bg-amber-950 px-2 py-0.5 rounded border border-amber-800">GIAO ĐỢT 1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-8 border-t border-emerald-950 py-6 text-center text-xs text-slate-500">
+        MobiAgri Agritech ERP Architecture • Kỹ sư: <strong>Vương Quốc Hòa</strong> (@VuongQuocHoa) • React 18, Vite, Express, Prisma ORM
+    </footer>
+
+    <script>
+        const LOGS = [
+            { id: "L01", zone: "A", farm: "Vườn Chú Ba Hưng (Lô A1)", act: "Bón phân hữu cơ vi sinh", mat: "Bio-Organic 50kg/gốc", safe: "Đã đủ 30 ngày", status: "Đạt Chuẩn", badge: "bg-emerald-950 text-emerald-400 border-emerald-800" },
+            { id: "L02", zone: "A", farm: "Vườn Bác Tám (Lô A2)", act: "Tỉa cành tạo tán sau thu hoạch", mat: "Kéo cắt cành khử trùng", safe: "N/A", status: "Hoàn Thành", badge: "bg-teal-950 text-teal-400 border-teal-800" },
+            { id: "L03", zone: "B", farm: "Vườn Anh Nam (Lô B1)", act: "Tưới tiêu nhỏ giọt tự động", mat: "Hệ thống Netafim Israel", safe: "N/A", status: "Đang Chạy", badge: "bg-cyan-950 text-cyan-400 border-cyan-800" },
+            { id: "L04", zone: "B", farm: "Vườn Chị Hương (Lô B2)", act: "Bao trái ngừa sâu đục quả", mat: "Túi vải chuyên dụng 2 lớp", safe: "Cách ly 14 ngày", status: "Đạt Chuẩn", badge: "bg-emerald-950 text-emerald-400 border-emerald-800" },
+            { id: "L05", zone: "A", farm: "Hợp tác xã Trung Tâm (Lô A3)", act: "Kiểm nghiệm tồn dư BVTV", mat: "Test kit Agilent LC-MS", safe: "0.00 ppm", status: "Xuất Khẩu OK", badge: "bg-amber-950 text-amber-400 border-amber-800" }
+        ];
+
+        function filterZone(z) {
+            document.querySelectorAll('.zone-tab').forEach(t => {
+                t.className = 'zone-tab px-3 py-1.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white bg-[#061410] border border-emerald-900/60 transition';
+            });
+            document.getElementById('tab-' + z).className = 'zone-tab px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-black transition';
+
+            renderTable(z);
+        }
+
+        function renderTable(z) {
+            const tbody = document.getElementById("diaryTbody");
+            const filtered = z === 'all' ? LOGS : LOGS.filter(item => item.zone === z);
+
+            tbody.innerHTML = filtered.map(item => `
+                <tr class="hover:bg-emerald-950/40 transition">
+                    <td class="p-3 font-mono text-emerald-400 font-bold">${item.id}</td>
+                    <td class="p-3 font-semibold text-white">${item.farm}</td>
+                    <td class="p-3">${item.act}</td>
+                    <td class="p-3 font-mono text-slate-400">${item.mat}</td>
+                    <td class="p-3 font-mono text-slate-300">${item.safe}</td>
+                    <td class="p-3 text-right">
+                        <span class="px-2 py-0.5 rounded text-[11px] font-mono font-bold border ${item.badge}">${item.status}</span>
+                    </td>
+                </tr>
+            `).join("");
+        }
+
+        renderTable('all');
+    </script>
+</body>
+</html>
