@@ -1,5 +1,12 @@
 # MobiAgri — Quản lý vùng nguyên liệu
 
+<div align="center">
+
+[![Live Demo on Render](https://img.shields.io/badge/🌐_Live_Demo-Render-00f0ff?style=for-the-badge&logo=render&logoColor=white)](https://vuongquochoa-mobiagri-app.onrender.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github)](https://github.com/VuongQuocHoa/mobiagri-app)
+
+</div>
+
 Ứng dụng quản lý vùng nguyên liệu cho hợp tác xã và đội sản xuất. Mục tiêu là thay thế việc ghi chép rời rạc bằng một luồng quản lý thống nhất:
 
 - Frontend React/Vite
